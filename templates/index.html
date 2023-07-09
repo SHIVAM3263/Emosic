@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .cover_photo{
+        height: 200px;
+        width: 200px;
+
+      }
+    </style>
+    <script>
+      function showEmotion() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+            document.getElementById("emotion-label").innerHTML = response.emotion;
+            var songsHtml = "";
+            for (var i = 0; i < response.songs.length; i++) {
+              var song = response.songs[i];
+              songsHtml += '<div class="song-item">';
+              songsHtml += '<img class="cover_Photo" src="/static/covers/'+ song.cover_photo +'" onclick="playSong(\'' + song.audio_file + '\')">';
+              songsHtml += '<p class="song-title">' + song.title + '</p>';
+              songsHtml += '</div>';
+            }
+            document.getElementById("songs-list").innerHTML = songsHtml;
+          }
+        };
+        xhttp.open("GET", "/get_emotion", true);
+        xhttp.send();
+      }
+      
+    </script>
+    
+  </head>
+  <body style="background-color: #b9e9fc">
+    <div>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">EMOMATCH</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="#">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="mt-5 mb-4">
+      <figure class="text-center">
+        <blockquote class="blockquote">
+          <p>Play music based on your emotions</p>
+        </blockquote>
+        <h3>Using <cite title="Source Title">EmoMatch</cite></h3>
+      </figure>
+    </div>
+    <div class="container mx-auto">
+      <div class="card" style="width: 30rem; height: 30rem; float: left">
+        <img
+          class="card-img-top"
+          style="height: 23rem"
+          src="{{ url_for('video_feed') }}"
+          alt="Card image cap"
+        />
+      </div>
+      
+      <div id="recommend-container"  class="card pl-4" style="width: 30rem; height: 30rem; float: right">
+        <button onclick="showEmotion()">Get Emotion</button>
+        <p id="emotion-label"></p> 
+        <div id="songs-list"></div>
+      </div>
+
+  
+    </div>
+
+    
+    
+  </body>
+</html>
