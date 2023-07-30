@@ -17,19 +17,19 @@ emotion_labels = ['Angry','Disgust','Fear','Happy','Neutral', 'Sad', 'Surprise']
 current_emotion = ""
 emotion_songs = {
     'Angry': [
-        {'title': 'Song 10', 'cover_photo': 'cover10.jpg', 'audio_file': 'song10.mp3'},
-        {'title': 'Song 11', 'cover_photo': 'cover11.jpg', 'audio_file': 'song11.mp3'},
-        {'title': 'Song 12', 'cover_photo': 'cover12.jpg', 'audio_file': 'song12.mp3'}
+        {'title': 'Song 1', 'cover_photo': 'cover10.jpg', 'audio_file': 'song10.mp3'},
+        {'title': 'Song 2', 'cover_photo': 'cover11.jpg', 'audio_file': 'song11.mp3'},
+        {'title': 'Song 3', 'cover_photo': 'cover12.jpg', 'audio_file': 'song12.mp3'}
     ],
-    'Disgust': [
-        {'title': 'Song 4', 'cover_photo': 'cover4.jpg', 'audio_file': 'song4.mp3'},
-        {'title': 'Song 5', 'cover_photo': 'cover5.jpg', 'audio_file': 'song5.mp3'},
-        {'title': 'Song 6', 'cover_photo': 'cover6.jpg', 'audio_file': 'song6.mp3'}
-    ],
+    # 'Disguist': [
+    #     {'title': 'Song 4', 'cover_photo': 'cover4.jpg', 'audio_file': 'song4.mp3'},
+    #     {'title': 'Song 5', 'cover_photo': 'cover5.jpg', 'audio_file': 'song5.mp3'},
+    #     {'title': 'Song 6', 'cover_photo': 'cover6.jpg', 'audio_file': 'song6.mp3'}
+    # ],
     'Fear': [
-        {'title': 'Song 7', 'cover_photo': 'cover7.jpg', 'audio_file': 'song7.mp3'},
-        {'title': 'Song 8', 'cover_photo': 'cover8.jpg', 'audio_file': 'song8.mp3'},
-        {'title': 'Song 9', 'cover_photo': 'cover9.jpg', 'audio_file': 'song9.mp3'}
+        {'title': 'Song 1', 'cover_photo': 'cover7.jpg', 'audio_file': 'song7.mp3'},
+        {'title': 'Song 2', 'cover_photo': 'cover8.jpg', 'audio_file': 'song8.mp3'},
+        {'title': 'Song 3', 'cover_photo': 'cover9.jpg', 'audio_file': 'song9.mp3'}
     ],
     'Happy': [
         {'title': 'Song 1', 'cover_photo': 'Cover1.png', 'audio_file': 'song1.mp3'},
@@ -37,19 +37,19 @@ emotion_songs = {
         {'title': 'Song 3', 'cover_photo': 'Cover3.png', 'audio_file': 'song3.mp3'}
     ],
     'Sad': [
-        {'title': 'Song 13', 'cover_photo': 'cover13.jpg', 'audio_file': 'song13.mp3'},
-        {'title': 'Song 14', 'cover_photo': 'cover14.jpg', 'audio_file': 'song14.mp3'},
-        {'title': 'Song 15', 'cover_photo': 'cover15.jpg', 'audio_file': 'song15.mp3'}
+        {'title': 'Song 1', 'cover_photo': 'cover13.jpg', 'audio_file': 'song13.mp3'},
+        {'title': 'Song 2', 'cover_photo': 'cover14.jpg', 'audio_file': 'song14.mp3'},
+        {'title': 'Song 3', 'cover_photo': 'cover15.jpg', 'audio_file': 'song15.mp3'}
     ],
     'Surprise': [
-        {'title': 'Song 16', 'cover_photo': 'cover16.jpg', 'audio_file': 'song16.mp3'},
-        {'title': 'Song 17', 'cover_photo': 'cover17.jpg', 'audio_file': 'song17.mp3'},
-        {'title': 'Song 18', 'cover_photo': 'cover18.jpg', 'audio_file': 'song18.mp3'}
+        {'title': 'Song 1', 'cover_photo': 'cover16.jpg', 'audio_file': 'song16.mp3'},
+        {'title': 'Song 2', 'cover_photo': 'cover17.jpg', 'audio_file': 'song17.mp3'},
+        {'title': 'Song 3', 'cover_photo': 'cover18.jpg', 'audio_file': 'song18.mp3'}
     ],
     'Neutral': [
-        {'title': 'Song 19', 'cover_photo': 'cover19.jpg', 'audio_file': 'song19.mp3'},
-        {'title': 'Song 20', 'cover_photo': 'cover20.jpg', 'audio_file': 'song20.mp3'},
-        {'title': 'Song 21', 'cover_photo': 'cover21.jpg', 'audio_file': 'song21.mp3'}
+        {'title': 'Song 1', 'cover_photo': 'cover19.jpg', 'audio_file': 'song19.mp3'},
+        {'title': 'Song 2', 'cover_photo': 'cover20.jpg', 'audio_file': 'song20.mp3'},
+        {'title': 'Song 3', 'cover_photo': 'cover21.jpg', 'audio_file': 'song21.mp3'}
     ]
 }
 
@@ -107,11 +107,6 @@ def get_emotion():
 @app.route('/video_feed')
 def video_feed():
     return Response(gen_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
-
-
-
-
-
 
     
 if __name__ == "__main__":

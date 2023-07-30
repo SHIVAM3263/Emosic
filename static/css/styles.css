@@ -1,0 +1,60 @@
+
+.text {
+    color: #fff;
+}
+
+.github-logo {
+    padding-left: 3%;
+    padding-top: 3%;
+}
+
+#emotion-label, #songs-list {
+    text-align: center;
+    font-weight: bold;
+}
+
+#progress-bar-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #1d5d9b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#progress-bar {
+    width: 80%;
+    height: 10px;
+    background-color: lightgray;
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+#progress {
+    height: 100%;
+    width: 0;
+    background-color: green;
+    border-radius: 10px;
+}
+
+#play-pause {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+#time {
+    font-size: 14px;
+    margin-right: 10px;
+    color: #fff;
+}
+.cover-photo{
+    height: 5.6rem; 
+    width: 30rem; 
+    padding-left: 20px; 
+    padding-right: 20px;
+}
