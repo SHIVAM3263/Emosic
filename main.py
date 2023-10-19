@@ -21,11 +21,6 @@ emotion_songs = {
         {'title': 'Song 2', 'cover_photo': 'cover11.jpg', 'audio_file': 'song11.mp3'},
         {'title': 'Song 3', 'cover_photo': 'cover12.jpg', 'audio_file': 'song12.mp3'}
     ],
-    # 'Disguist': [
-    #     {'title': 'Song 4', 'cover_photo': 'cover4.jpg', 'audio_file': 'song4.mp3'},
-    #     {'title': 'Song 5', 'cover_photo': 'cover5.jpg', 'audio_file': 'song5.mp3'},
-    #     {'title': 'Song 6', 'cover_photo': 'cover6.jpg', 'audio_file': 'song6.mp3'}
-    # ],
     'Fear': [
         {'title': 'Song 1', 'cover_photo': 'cover7.jpg', 'audio_file': 'song7.mp3'},
         {'title': 'Song 2', 'cover_photo': 'cover8.jpg', 'audio_file': 'song8.mp3'},
@@ -47,7 +42,7 @@ emotion_songs = {
         {'title': 'Song 3', 'cover_photo': 'cover18.jpg', 'audio_file': 'song18.mp3'}
     ],
     'Neutral': [
-        {'title': 'Song 1', 'cover_photo': 'cover19.jpg', 'audio_file': 'song19.mp3'},
+        {'title': 'On and On', 'cover_photo': 'on and on.jpg', 'audio_file': 'On and On.mp3'},
         {'title': 'Song 2', 'cover_photo': 'cover20.jpg', 'audio_file': 'song20.mp3'},
         {'title': 'Song 3', 'cover_photo': 'cover21.jpg', 'audio_file': 'song21.mp3'}
     ]
@@ -95,7 +90,7 @@ def gen_frames():
 @app.route('/', methods=['GET', 'POST'])
 def index():
 
-    return render_template('index.html',emotion=current_emotion)
+    return render_template('index.html')
 
 @app.route('/get_emotion', methods=['GET'])
 def get_emotion():
@@ -103,6 +98,7 @@ def get_emotion():
     global songs
     songs = emotion_songs.get(current_emotion, [])
     return jsonify({'emotion': current_emotion, 'songs': songs})
+    return render_template('index.html',emotion=current_emotion)
 
 @app.route('/video_feed')
 def video_feed():
